@@ -1,6 +1,6 @@
 print("CALCULADORA DE DESCUENTO")
 while True:
-    nombre=input("Ingrese su nombre:")
+    nombre=input("Ingrese nombre del producto:")
     if not nombre.isnumeric():
         break
     else:
@@ -24,3 +24,8 @@ while True:
     except ValueError:
         print("Error! el descuento debe ser números válidos")
 precio_final=precio-(precio*porcentaje_descuento/100)
+
+print(f""" Producto: {nombre}
+Precio original: {precio}
+Descuento: {15}%
+Precio Final: {int(precio_final)}""")
