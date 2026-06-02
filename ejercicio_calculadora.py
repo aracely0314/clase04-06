@@ -17,8 +17,8 @@ while True:
 while True:
     try:
         porcentaje_descuento=int(input("Ingrese el porcentaje de descuento:"))
-        if porcentaje_descuento<0:
-            print("ERROR! no puede ser un descuento menor que 0")
+        if porcentaje_descuento<0 and porcentaje_descuento>100:
+            print("ERROR! no puede ser un descuento menor que 0 ni mayor a 100")
         else:
             break
     except ValueError:
