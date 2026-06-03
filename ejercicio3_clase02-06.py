@@ -9,8 +9,11 @@ while True:
     os.system("cls")
     print(menu)
     opcion=input("Seleccione una opción (1-4): ")
+    os.system("cls")
     if opcion=="1":
         print(f"Saldo actual: ${saldo}")
+        print("Volviendo al menú principal...")
+        time.sleep(2)
     elif opcion=="2":
         while True:
             try:
@@ -20,6 +23,7 @@ while True:
                 else:
                     saldo+=deposito
                     print(f"Depósito realizado")
+                    print("Volviendo al menú principal...")
                     time.sleep(1)
                     break
             except ValueError:
@@ -33,6 +37,7 @@ while True:
                 else:
                     saldo-=giro
                     print(f"Giro realizado")
+                    print("Volviendo al menú principal...")
                     time.sleep(1)
                     break
             except ValueError:
@@ -44,3 +49,4 @@ while True:
     else:
         print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
         time.sleep(2)
+    time.sleep(2)
