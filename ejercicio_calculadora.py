@@ -27,5 +27,5 @@ precio_final=precio-(precio*porcentaje_descuento/100)
 
 print(f""" Producto: {nombre}
 Precio original: {precio}
-Descuento: {15}%
+Descuento: {descuento}%
 Precio Final: {int(precio_final)}""")
