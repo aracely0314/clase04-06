@@ -13,24 +13,30 @@ while True:
         print(f"Saldo actual: ${saldo}")
     elif opcion=="2":
         while True:
+            try:
                 deposito=int(input("Monto a depositar: "))
                 if deposito<0:
-                    print("El monto a depositar debe ser mayor o iguala cero.")
+                    print("El monto a depositar debe ser mayor o igual a cero.")
                 else:
                     saldo+=deposito
                     print(f"Depósito realizado")
                     time.sleep(1)
                     break
+            except ValueError:
+                print("Entrada no válida. Por favor, ingrese un número entero válido.")
     elif opcion=="3":
         while True:
+            try:
                 giro=int(input("Monto a girar: "))
                 if giro>saldo:
-                    print("No tiene suficiente saldo para realizar el giro.")
+                    print("No tiene suficiente saldo para realizar el giro, ingrese monto dentro del saldo.")
                 else:
                     saldo-=giro
                     print(f"Giro realizado")
                     time.sleep(1)
                     break
+            except ValueError:
+                print("Entrada no válida. Por favor, ingrese un número entero válido.")
     elif opcion=="4":
         print("Gracias por usar el sistema. ¡Hasta luego!")
         time.sleep(2)
