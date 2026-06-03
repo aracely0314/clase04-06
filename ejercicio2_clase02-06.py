@@ -10,3 +10,10 @@ for i in range(cantidad_notas):
        suma_notas += nota
 
 promedio = suma_notas / cantidad_notas
+
+if promedio>= 4.0:
+    estado= "Aprobado"
+else:
+    estado= "Reprobado"
+print(f"Promedio: {promedio:.2f}")
+print(f"Estado: {estado}")
