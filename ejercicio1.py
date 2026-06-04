@@ -1,3 +1,6 @@
+nombres=[]
+niveles=[]
+
 contador_ing_senior=0
 contador_ing_junior=0
 while True:
@@ -23,9 +26,16 @@ for i in range(cantidad_ingenieros):
             print("¡Error de validación! Ingresa un número entero positivo para el nivel técnico.")
         except ValueError:
             print("¡Error de validación! Ingresa un número entero positivo para el nivel técnico.")
+    #Bloque de guardado de datos
+    nombres.append(nombre)
+    niveles.append(nivel_tecnico)
+    #Termina bloque de guardado
     if nivel_tecnico>45:
         contador_ing_senior+=1
     else: 
         contador_ing_junior+=1
 
 print(f"¡El instituto cuenta con {contador_ing_senior} Ingenieros Senior y {contador_ing_junior} Ingenieros Junior!")
+ #Bloque de historial 
+for x in range(cantidad_ingenieros):
+    print(f"{x+1}.Ingeniero: {nombres[x]} - Nivel: {niveles[x]}")
