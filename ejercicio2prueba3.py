@@ -49,9 +49,31 @@ while True:
             except ValueError:
                 print("Error! Debe ingresar un número entero positivo válido")
     elif opcion=="3":
-        pass
+        print("REALIZAR CHECK-OUT")
+        while True:
+            if habitaciones_en_reserva==0:
+                print("No hay habitaciones reservadas para cancelar")
+                print("Volviendo al menú principal...")
+                time.sleep(1)
+                break
+            try:
+                cancelar_habitacion=int(input("Ingrese cantidad de habitaciones que desea cancelar: "))
+                if cancelar_habitacion>=0 and cancelar_habitacion<=habitaciones_en_reserva and cancelar_habitacion<=50:
+                    habitaciones_disponibles+=cancelar_habitacion
+                    habitaciones_en_reserva-=cancelar_habitacion
+                    print("Se ha cancelado la reserva de habitacion con éxito")
+                    print("Volviendo al menú principal...")
+                    time.sleep(1.52)
+                    break
+                else: 
+                    if cancelar_habitacion>50 and cancelar_habitacion>habitaciones_en_reserva:
+                        print("Error! El número ingresado es mayor a la capacidad máxima del hotel o supera el número de habitaciones en reserva")
+                    else:
+                        print("Error! Debe ingresar un número entero válido mayor o igual a 0")
+            except ValueError:
+                print("Error! Debe ingresar un número entero válido mayor o igual a 0")
     elif opcion=="4":
-        pass
+        pass 
     elif opcion=="5":
         print("¡Gracias por usar el sistema de gestión de habitaciones del Hotel Estelar! ¡Hasta luego!")
         time.sleep(2)
