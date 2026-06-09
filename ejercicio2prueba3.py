@@ -23,7 +23,7 @@ while True:
         print("Volviendo al menú principal...")
         time.sleep(2)
     elif opcion=="2":
-        print("REALIZAR CHECK-IN")
+        print("RESERVAR CUPOS")
         while True:
             if cupos_disponibles==0:
                 print("No hay cupos disponibles")
@@ -48,7 +48,29 @@ while True:
             except ValueError:
                 print("Error! Debe ingresar un número entero positivo válido")
     elif opcion=="3":
-        pass
+        print("CANCELAR RESERVA DE CUPOS")
+        while True:
+            if cupos_en_reserva==0:
+                print("No hay cupos reservados para cancelar")
+                print("Volviendo al menú principal...")
+                time.sleep(1)
+                break
+            try:
+                cancelar_cupos=int(input("Ingrese cantidad de cupos que desea cancelar: "))
+                if cancelar_cupos>=0 and cancelar_cupos<=cupos_en_reserva and cancelar_cupos<=75:
+                    cupos_disponibles+=cancelar_cupos
+                    cupos_en_reserva-=cancelar_cupos
+                    print("Se ha cancelado la reserva de cupo con éxito")
+                    print("Volviendo al menú principal...")
+                    time.sleep(1.5)
+                    break
+                else: 
+                    if cancelar_cupos>75 and cancelar_cupos>cupos_en_reserva:
+                        print("Error! El número ingresado es mayor a la capacidad máxima del gimnasio o supera el número de cupos en reserva")
+                    else:
+                        print("Error! Debe ingresar un número entero válido mayor o igual a 0")
+            except ValueError:
+                print("Error! Debe ingresar un número entero válido mayor o igual a 0")
     elif opcion=="4":
         pass
     elif opcion=="5":
