@@ -5,6 +5,8 @@ menu_principal= """*** MENU PRINCIPAL ***
 3.- Cancelar reserva.
 4.- Historial de reservas.
 5.- Salir."""
+historial_reservas=[]
+historial_cancelaciones=[]
 cupos_disponibles=75
 reservar_cupos=0
 total_reservas=0
@@ -38,8 +40,9 @@ while True:
                     cupos_en_reserva+=reservar_cupos
                     total_reservas+=1
                     total_cupos_reservados+=reservar_cupos
+                    historial_reservas.append(reservar_cupos)
                     print("Volviendo al menú principal...")
-                    time.sleep(1.5)
+                    time.sleep(1)
                     break
                 elif reservar_cupos>cupos_disponibles:
                     print("Cantidad de cupos que desea reservar supera la cantidad de cupos disponibles.")
@@ -60,9 +63,10 @@ while True:
                 if cancelar_cupos>=0 and cancelar_cupos<=cupos_en_reserva and cancelar_cupos<=75:
                     cupos_disponibles+=cancelar_cupos
                     cupos_en_reserva-=cancelar_cupos
+                    historial_cancelaciones.append(cancelar_cupos)
                     print("Se ha cancelado la reserva de cupo con éxito")
                     print("Volviendo al menú principal...")
-                    time.sleep(1.5)
+                    time.sleep(1)
                     break
                 else: 
                     if cancelar_cupos>75 and cancelar_cupos>cupos_en_reserva:
@@ -72,7 +76,18 @@ while True:
             except ValueError:
                 print("Error! Debe ingresar un número entero válido mayor o igual a 0")
     elif opcion=="4":
-        pass
+        print("HISTORIAL DE RESERVAS")
+        if total_reservas==0:
+            print("No se han realizado reservas aún")
+        else:
+            for i in range(len(historial_reservas)):
+                print(f"Reserva {i+1}: {historial_reservas[i]} cupos reservados")
+            for x in range(len(historial_cancelaciones)):
+                print(f"Cancelación {x+1}: {historial_cancelaciones[x]} cupos cancelados")
+            print(f"Total de reservas realizadas en la sesión: {total_reservas}")
+            print(f"Total de cupos reservados en la sesión: {total_cupos_reservados}")
+        print("Volviendo al menú principal...")
+        time.sleep(4)
     elif opcion=="5":
         print("Gracias por utilizar nuestro software, hasta la próxima.")
         time.sleep(2)
