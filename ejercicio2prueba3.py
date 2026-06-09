@@ -1,84 +1,32 @@
-import os, time
-print("¡Bienvenido al sistema de gestión de habitaciones del Hotel Estelar!")
-menu_principal="""===MENÚ PRINCIPAL===
-1. Habitaciones disponibles
-2. Realizar check-in
-3. Realizar check-out
-4. Historial de ocupaciones
-5. Salir"""
-habitaciones_disponibles=50
-reservar_habitacion=0
-habitaciones_disponibles=50
-total_reservas=0
-cancelar_habitacion=0
-habitaciones_en_reserva=0
-total_habitaciones_reservadas=0
+import os,time
+menu_principal= """*** MENU PRINCIPAL ***
+1.- Cupos disponibles.
+2.- Realizar reserva.
+3.- Cancelar reserva.
+4.- Historial de reservas.
+5.- Salir."""
+cupos_disponibles=75
+print("¡Bienvenido al sistema de gestión de cupos del Gimnasio Titan!")
 while True:
     os.system("cls")
     print(menu_principal)
     opcion=input("Ingrese la opción que desea (1-5): ")
     os.system("cls")
     if opcion=="1":
-        print("HABITACIONES DISPONIBLES")
-        print(f"Cantidad de habitaciones disponibles en el hotel: {habitaciones_disponibles}")
+        print("Cupos disponibles")
+        print(f"Cantidad de cupos disponibles en el gimnasio: {cupos_disponibles}")
         print("Volviendo al menú principal...")
         time.sleep(2)
     elif opcion=="2":
-        print("REALIZAR CHECK-IN")
-        while True:
-            if habitaciones_disponibles==0:
-                print("No hay habitaciones disponibles")
-                print("Volviendo al menú principal...")
-                time.sleep(1.3)
-                break
-            try:
-                reservar_habitacion=int(input("Ingrese cantidad de habitaciones que desea reservar:"))
-                if reservar_habitacion>0 and reservar_habitacion<=habitaciones_disponibles:
-                    print(f"{reservar_habitacion} habitaciones reservadas con éxito!")
-                    habitaciones_disponibles-=reservar_habitacion
-                    habitaciones_en_reserva+=reservar_habitacion
-                    total_reservas+=1
-                    total_habitaciones_reservadas+=reservar_habitacion
-                    print("Volviendo al menú principal...")
-                    time.sleep(1.5)
-                    break
-                elif reservar_habitacion>habitaciones_disponibles:
-                    print("Cantidad de habitaciones que desea reservar supera la cantidad de habitaciones disponibles.")
-                    continue
-                print ("Error! Debe ingresar un número entero positivo válido")
-            except ValueError:
-                print("Error! Debe ingresar un número entero positivo válido")
+       pass
     elif opcion=="3":
-        print("REALIZAR CHECK-OUT")
-        while True:
-            if habitaciones_en_reserva==0:
-                print("No hay habitaciones reservadas para cancelar")
-                print("Volviendo al menú principal...")
-                time.sleep(1)
-                break
-            try:
-                cancelar_habitacion=int(input("Ingrese cantidad de habitaciones que desea cancelar: "))
-                if cancelar_habitacion>=0 and cancelar_habitacion<=habitaciones_en_reserva and cancelar_habitacion<=50:
-                    habitaciones_disponibles+=cancelar_habitacion
-                    habitaciones_en_reserva-=cancelar_habitacion
-                    print("Se ha cancelado la reserva de habitacion con éxito")
-                    print("Volviendo al menú principal...")
-                    time.sleep(1.52)
-                    break
-                else: 
-                    if cancelar_habitacion>50 and cancelar_habitacion>habitaciones_en_reserva:
-                        print("Error! El número ingresado es mayor a la capacidad máxima del hotel o supera el número de habitaciones en reserva")
-                    else:
-                        print("Error! Debe ingresar un número entero válido mayor o igual a 0")
-            except ValueError:
-                print("Error! Debe ingresar un número entero válido mayor o igual a 0")
+        pass
     elif opcion=="4":
-        pass 
+        pass
     elif opcion=="5":
-        print("¡Gracias por usar el sistema de gestión de habitaciones del Hotel Estelar! ¡Hasta luego!")
+        print("Gracias por utilizar nuestro software, hasta la próxima.")
         time.sleep(2)
         break
     else:
-        print("Opción inválida. Por favor, ingrese una opción válida (1-5).")
-        time.sleep(2)
+        print("Error! Opcion no válida, debe ingresar una opción entre 1 y 5")
     time.sleep(2)
